@@ -29,10 +29,10 @@ if (!isset($conn)) {
 					<?php endif; ?>
 					<div class="form-group">
 						<label for="" class="control-label">Department</label>
-						<select name="department_id" id="department_id" class="custom-select custom-select-sm select2">
+						<select name="department_id" id="department_id" class="custom-select custom-select-sm select2" required oninvalid="this.setCustomValidity('Select Department here')" oninput="setCustomValidity('')">
 							<option value=""></option>
 							<?php
-							$department = $conn->query("SELECT * FROM departments order by name asc");
+							$department = $conn->query("SELECT * FROM departments where id = '1'");
 							while ($row = $department->fetch_assoc()) :
 							?>
 								<option value="<?php echo $row['id'] ?>" <?php echo isset($department_id) && $department_id == $row['id'] ? "selected" : '' ?>><?php echo ucwords($row['name']) ?></option>
