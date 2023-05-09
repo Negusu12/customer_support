@@ -49,6 +49,37 @@
       <!-- /.info-box -->
     </div>
     <!-- /.col -->
+
+    <div class="col-12 col-sm-6 col-md-3">
+      <div class="info-box mb-3">
+        <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-door-open"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Open/Processing Tickets</span>
+          <span class="info-box-number"><?php echo $conn->query("SELECT * FROM tickets WHERE (tickets.status = 0 OR tickets.status = 1)")->num_rows; ?></span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+
+    <!-- fix for small devices only -->
+    <div class="clearfix hidden-md-up"></div>
+
+    <div class="col-12 col-sm-6 col-md-3">
+      <div class="info-box mb-3">
+        <span class="info-box-icon bg-success elevation-1"><i class="fas fa-check"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Processed Tickets</span>
+          <span class="info-box-number"><?php echo $conn->query("SELECT * FROM tickets where tickets.status=2")->num_rows; ?></span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+    </div>
+
     <div class="col-12 col-sm-6 col-md-3">
       <div class="info-box mb-3">
         <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-ticket-alt"></i></span>
@@ -66,24 +97,12 @@
 
 <?php elseif ($_SESSION['login_type'] == 3) : ?>
   <div class="row">
-    <div class="col-12 col-sm-6 col-md-3">
-      <div class="info-box">
-        <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
 
-        <div class="info-box-content">
-          <span class="info-box-text">Total Customers</span>
-          <span class="info-box-number">
-            <?php echo $conn->query("SELECT * FROM customers")->num_rows; ?>
-          </span>
-        </div>
-        <!-- /.info-box-content -->
-      </div>
-      <!-- /.info-box -->
-    </div>
+
     <!-- /.col -->
     <div class="col-12 col-sm-6 col-md-3">
       <div class="info-box mb-3">
-        <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-ticket-alt"></i></span>
+        <span class="info-box-icon bg-info elevation-1"><i class="fas fa-door-open"></i></span>
 
         <div class="info-box-content">
           <span class="info-box-text">Open Tickets</span>
@@ -100,7 +119,7 @@
 
     <div class="col-12 col-sm-6 col-md-3">
       <div class="info-box mb-3">
-        <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-ticket-alt"></i></span>
+        <span class="info-box-icon bg-success elevation-1"><i class="fas fa-check"></i></span>
 
         <div class="info-box-content">
           <span class="info-box-text">Processed Tickets</span>
@@ -124,6 +143,44 @@
       <!-- /.info-box -->
     </div>
     <!-- /.col -->
+  </div>
+
+
+<?php elseif ($_SESSION['login_type'] == 2) : ?>
+  <div class="row">
+
+
+    <!-- /.col -->
+    <div class="col-12 col-sm-6 col-md-3">
+      <div class="info-box mb-3">
+        <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-door-open"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Open Tickets</span>
+          <span class="info-box-number"><?php echo $conn->query("SELECT * FROM tickets WHERE tickets.status = 0")->num_rows; ?></span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+
+    <!-- fix for small devices only -->
+    <div class="clearfix hidden-md-up"></div>
+
+    <div class="col-12 col-sm-6 col-md-3">
+      <div class="info-box mb-3">
+        <span class="info-box-icon bg-success elevation-1"><i class="fas fa-check"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Processed Tickets</span>
+          <span class="info-box-number"><?php echo $conn->query("SELECT * FROM tickets where tickets.status=2 and tickets.staff_id = {$_SESSION['login_id']}")->num_rows; ?></span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+    </div>
+
   </div>
 
 <?php else : ?>
