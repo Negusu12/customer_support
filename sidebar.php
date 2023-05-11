@@ -1,4 +1,7 @@
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <head>
+    <link rel="stylesheet" href="assets/dist/css/adminlte.min.css">
+  </head>
+  <aside class="main-sidebar sidebar_background elevation-4">
     <div class="dropdown">
       <a href="javascript:void(0)" class="brand-link dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
         <span class="brand-image img-circle elevation-3 d-flex justify-content-center align-items-center bg-primary text-white font-weight-500" style="width: 38px;height:50px"><?php echo strtoupper(substr($_SESSION['login_firstname'], 0, 1) . substr($_SESSION['login_lastname'], 0, 1)) ?></span>
@@ -91,7 +94,31 @@
                 <li class="nav-item">
                   <a href="./index.php?page=ticket_report" class="nav-link nav-customer_list tree-item">
                     <i class="fas fa-angle-right nav-icon"></i>
-                    <p>List</p>
+                    <p>Tickets</p>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./index.php?page=report_support" class="nav-link nav-customer_list tree-item">
+                    <i class="fas fa-angle-right nav-icon"></i>
+                    <p>Support Report</p>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./index.php?page=report_customer_request" class="nav-link nav-customer_list tree-item">
+                    <i class="fas fa-angle-right nav-icon"></i>
+                    <p>Customer Request Report</p>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./index.php?page=report_department_request" class="nav-link nav-customer_list tree-item">
+                    <i class="fas fa-angle-right nav-icon"></i>
+                    <p>Department Request Report</p>
                   </a>
                 </li>
               </ul>
