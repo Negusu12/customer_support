@@ -78,8 +78,8 @@ include('./db_connect.php');
 							<div class="form-group">
 								<label for="password" class="control-label text-dark">Type</label>
 								<select class="custom-select custom-select-sm" name="type">
-									<option value="3">Staff</option>
-									<option value="2">IT Support</option>
+									<option value="3">Customer</option>
+									<option value="2">IT Staff</option>
 									<option value="1">Admin</option>
 
 								</select>

@@ -16,7 +16,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Staff Name</th>
+                        <th>IT Staff Name</th>
                         <th>Support Count</th>
                     </tr>
                 </thead>

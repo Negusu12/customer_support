@@ -15,7 +15,7 @@ if (!isset($conn)) {
 					</div>
 					<?php if ($_SESSION['login_type'] != 3) : ?>
 						<div class="form-group">
-							<label for="" class="control-label">Customer</label>
+							<label for="" class="control-label">Staff</label>
 							<select name="customer_id" id="customer_id" class="custom-select custom-select-sm select2">
 								<option value=""></option>
 								<?php

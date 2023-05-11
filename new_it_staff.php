@@ -6,7 +6,7 @@ if (!isset($conn)) {
 <div class="col-lg-12">
 	<div class="card">
 		<div class="card-body">
-			<form action="" id="manage_customer">
+			<form action="" id="manage_staff">
 				<input type="hidden" name="id" value="<?php echo isset($id) ? $id : '' ?>">
 				<div class="row">
 					<div class="col-md-6 border-right">
@@ -24,18 +24,6 @@ if (!isset($conn)) {
 							<input type="text" name="lastname" class="form-control form-control-sm" required value="<?php echo isset($lastname) ? $lastname : '' ?>">
 						</div>
 						<div class="form-group">
-							<label for="" class="control-label">Department</label>
-							<select name="department_id" id="department_id" class="custom-select custom-select-sm select2" required oninvalid="this.setCustomValidity('Select Department here')" oninput="setCustomValidity('')">
-								<option value=""></option>
-								<?php
-								$department = $conn->query("SELECT * FROM departments order by name asc");
-								while ($row = $department->fetch_assoc()) :
-								?>
-									<option value="<?php echo $row['id'] ?>" <?php echo isset($department_id) && $department_id == $row['id'] ? "selected" : '' ?>><?php echo ucwords($row['name']) ?></option>
-								<?php endwhile; ?>
-							</select>
-						</div>
-						<div class="form-group">
 							<label for="" class="control-label">Contact No.</label>
 							<input type="text" name="contact" class="form-control form-control-sm" required value="<?php echo isset($contact) ? $contact : '' ?>">
 						</div>
@@ -45,6 +33,18 @@ if (!isset($conn)) {
 						</div>
 					</div>
 					<div class="col-md-6">
+						<div class="form-group">
+							<label for="" class="control-label">Department</label>
+							<select name="department_id" id="department_id" class="custom-select custom-select-sm select2">
+								<option value=""></option>
+								<?php
+								$department = $conn->query("SELECT * FROM departments order by name asc");
+								while ($row = $department->fetch_assoc()) :
+								?>
+									<option value="<?php echo $row['id'] ?>" <?php echo isset($department_id) && $department_id == $row['id'] ? "selected" : '' ?>><?php echo ucwords($row['name']) ?></option>
+								<?php endwhile; ?>
+							</select>
+						</div>
 						<b class="text-muted">System Credentials</b>
 						<div class="form-group">
 							<label class="control-label">Email</label>
@@ -97,7 +97,7 @@ if (!isset($conn)) {
 			reader.readAsDataURL(input.files[0]);
 		}
 	}
-	$('#manage_customer').submit(function(e) {
+	$('#manage_staff').submit(function(e) {
 		e.preventDefault()
 		$('input').removeClass("border-danger")
 		start_load()
@@ -110,7 +110,7 @@ if (!isset($conn)) {
 			}
 		}
 		$.ajax({
-			url: 'ajax.php?action=save_customer',
+			url: 'ajax.php?action=save_staff',
 			data: new FormData($(this)[0]),
 			cache: false,
 			contentType: false,
@@ -121,7 +121,7 @@ if (!isset($conn)) {
 				if (resp == 1) {
 					alert_toast('Data successfully saved.', "success");
 					setTimeout(function() {
-						location.replace('index.php?page=customer_list')
+						location.replace('index.php?page=it_staff_list')
 					}, 750)
 				} else if (resp == 2) {
 					$('#msg').html("<div class='alert alert-danger'>Email already exist.</div>");

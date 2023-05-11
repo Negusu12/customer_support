@@ -4,5 +4,4 @@ $qry = $conn->query("SELECT * FROM customers where id = ".$_GET['id'])->fetch_ar
 foreach($qry as $k => $v){
 	$$k = $v;
 }
-include 'new_customer.php';
-?>
+include 'new_staff.php';

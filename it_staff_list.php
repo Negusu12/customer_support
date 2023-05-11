@@ -16,7 +16,7 @@
 				<tbody>
 					<?php
 					$i = 1;
-					$qry = $conn->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name FROM customers order by concat(lastname,', ',firstname,' ',middlename) asc");
+					$qry = $conn->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name FROM staff order by concat(lastname,', ',firstname,' ',middlename) asc");
 					while($row= $qry->fetch_assoc()):
 					?>
 					<tr>
@@ -30,9 +30,9 @@
 		                      Action
 		                    </button>
 		                    <div class="dropdown-menu" style="">
-		                      <a class="dropdown-item" href="./index.php?page=edit_customer&id=<?php echo $row['id'] ?>">Edit</a>
+		                      <a class="dropdown-item" href="./index.php?page=edit_staff&id=<?php echo $row['id'] ?>">Edit</a>
 		                      <div class="dropdown-divider"></div>
-		                      <a class="dropdown-item delete_customer" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>">Delete</a>
+		                      <a class="dropdown-item delete_staff" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>">Delete</a>
 		                    </div>
 						</td>
 					</tr>	
@@ -45,15 +45,14 @@
 <script>
 	$(document).ready(function(){
 		$('#list').dataTable()
-
-	$('.delete_customer').click(function(){
-	_conf("Are you sure to delete this customer?","delete_customer",[$(this).attr('data-id')])
+	$('.delete_staff').click(function(){
+	_conf("Are you sure to delete this staff?","delete_staff",[$(this).attr('data-id')])
 	})
 	})
-	function delete_customer($id){
+	function delete_staff($id){
 		start_load()
 		$.ajax({
-			url:'ajax.php?action=delete_customer',
+			url:'ajax.php?action=delete_staff',
 			method:'POST',
 			data:{id:$id},
 			success:function(resp){

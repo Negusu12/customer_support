@@ -1,13 +1,13 @@
 <?php include 'db_connect.php' ?>
-<?php 
-$qry = $conn->query("SELECT t.*,concat(c.lastname,', ',c.firstname,' ',c.middlename) as cname, d.name as dname FROM tickets t inner join customers c on c.id= t.customer_id inner join departments d on d.id = t.department_id  where  t.id = ".$_GET['id'])->fetch_array();
-foreach($qry as $k => $v){
+<?php
+$qry = $conn->query("SELECT t.*,concat(c.lastname,', ',c.firstname,' ',c.middlename) as cname, d.name as dname FROM tickets t inner join customers c on c.id= t.customer_id inner join departments d on d.id = t.department_id  where  t.id = " . $_GET['id'])->fetch_array();
+foreach ($qry as $k => $v) {
 	$$k = $v;
 }
 ?>
 <style>
 	.d-list {
-	    display: list-item;
+		display: list-item;
 	}
 </style>
 <div class="col-lg-12">
@@ -29,17 +29,17 @@ foreach($qry as $k => $v){
 							<div class="col-md-6">
 								<label for="" class="control-label border-bottom border-primary">Status</label>
 								<p class="ml-2 d-list">
-									<?php if($status == 0): ?>
+									<?php if ($status == 0) : ?>
 										<span class="badge badge-primary">Pending/Open</span>
-									<?php elseif($status == 1): ?>
+									<?php elseif ($status == 1) : ?>
 										<span class="badge badge-info">Processing</span>
-									<?php elseif($status == 2): ?>
+									<?php elseif ($status == 2) : ?>
 										<span class="badge badge-success">Done</span>
-									<?php else: ?>
+									<?php else : ?>
 										<span class="badge badge-secondary">Closed</span>
 									<?php endif; ?>
-									<?php if($_SESSION['login_type'] != 3): ?>
-									<span class="badge btn-outline-primary btn update_status" data-id = '<?php echo $id ?>'>Update Status</span>
+									<?php if ($_SESSION['login_type'] != 3) : ?>
+										<span class="badge btn-outline-primary btn update_status" data-id='<?php echo $id ?>'>Update Status</span>
 									<?php endif; ?>
 								</p>
 								<label for="" class="control-label border-bottom border-primary">Need Support From</label>
@@ -61,40 +61,40 @@ foreach($qry as $k => $v){
 				</div>
 				<div class="card-body p-0 py-2">
 					<div class="container-fluid">
-						<?php 
+						<?php
 						$comments = $conn->query("SELECT * FROM comments where ticket_id = '$id' order by unix_timestamp(date_created) asc");
-						while($row = $comments->fetch_assoc()):
-							if($row['user_type'] == 1)
+						while ($row = $comments->fetch_assoc()) :
+							if ($row['user_type'] == 1)
 								$uname = $conn->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name FROM users where id = {$row['user_id']}")->fetch_array()['name'];
-							if($row['user_type'] == 2)
+							if ($row['user_type'] == 2)
 								$uname = $conn->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name FROM staff where id = {$row['user_id']}")->fetch_array()['name'];
-							if($row['user_type'] == 3)
+							if ($row['user_type'] == 3)
 								$uname = $conn->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name FROM customers where id = {$row['user_id']}")->fetch_array()['name'];
 						?>
-						<div class="card card-outline card-info">
-							<div class="card-header">
-								<h5 class="card-title"><?php echo ucwords($uname) ?></h5>
-								<div class="card-tools">
-									<span class="text-muted"><?php echo date("M d, Y",strtotime($row['date_created'])) ?></span>
-									<?php if($row['user_type'] == $_SESSION['login_type'] && $row['user_id'] == $_SESSION['login_id']): ?>
-									<span class="dropleft">
-										<a class="fa fa-ellipsis-v text-muted" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-										<div class="dropdown-menu" style="">
-									        <a class="dropdown-item edit_comment" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>">Edit</a>
-									        <div class="dropdown-divider"></div>
-									        <a class="dropdown-item delete_comment" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>">Delete</a>
-									     </div>
-									</span>	
-								<?php endif; ?>
+							<div class="card card-outline card-info">
+								<div class="card-header">
+									<h5 class="card-title"><?php echo ucwords($uname) ?></h5>
+									<div class="card-tools">
+										<span class="text-muted"><?php echo date("M d, Y", strtotime($row['date_created'])) ?></span>
+										<?php if ($row['user_type'] == $_SESSION['login_type'] && $row['user_id'] == $_SESSION['login_id']) : ?>
+											<span class="dropleft">
+												<a class="fa fa-ellipsis-v text-muted" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+												<div class="dropdown-menu" style="">
+													<a class="dropdown-item edit_comment" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>">Edit</a>
+													<div class="dropdown-divider"></div>
+													<a class="dropdown-item delete_comment" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>">Delete</a>
+												</div>
+											</span>
+										<?php endif; ?>
+									</div>
+								</div>
+								<div class="card-body">
+									<div>
+										<?php echo html_entity_decode($row['comment']) ?>
+									</div>
 								</div>
 							</div>
-							<div class="card-body">
-								<div>
-									<?php echo html_entity_decode($row['comment']) ?>
-								</div>
-							</div>
-						</div>
-					<?php endwhile; ?>
+						<?php endwhile; ?>
 					</div>
 					<hr class="border-primary">
 					<div class="px-2">
@@ -114,61 +114,64 @@ foreach($qry as $k => $v){
 	</div>
 </div>
 <script>
-	$(function () {
-    $('.summernote2').summernote({
-        height: 150,
-        toolbar: [
-            [ 'style', [ 'style' ] ],
-            [ 'font', [ 'bold', 'italic', 'strikethrough', 'superscript', 'subscript', 'clear'] ],
-            [ 'fontsize', [ 'fontsize' ] ],
-            [ 'para', [ 'ol', 'ul', 'paragraph', 'height' ] ],
-            [ 'view', [ 'undo', 'redo'] ]
-        ]
-    })
+	$(function() {
+		$('.summernote2').summernote({
+			height: 150,
+			toolbar: [
+				['style', ['style']],
+				['font', ['bold', 'italic', 'strikethrough', 'superscript', 'subscript', 'clear']],
+				['fontsize', ['fontsize']],
+				['para', ['ol', 'ul', 'paragraph', 'height']],
+				['view', ['undo', 'redo']]
+			]
+		})
 
-  })
-	$('.edit_comment').click(function(){
-		uni_modal("Edit Comment","manage_comment.php?id="+$(this).attr('data-id'))
 	})
-	$('.update_status').click(function(){
-		uni_modal("Update Ticket's Status","manage_ticket.php?id="+$(this).attr('data-id'))
+	$('.edit_comment').click(function() {
+		uni_modal("Edit Comment", "manage_comment.php?id=" + $(this).attr('data-id'))
 	})
-	$('#manage-comment').submit(function(e){
+	$('.update_status').click(function() {
+		uni_modal("Update Ticket's Status", "manage_ticket.php?id=" + $(this).attr('data-id'))
+	})
+	$('#manage-comment').submit(function(e) {
 		e.preventDefault()
 		start_load()
 		$.ajax({
-			url:'ajax.php?action=save_comment',
+			url: 'ajax.php?action=save_comment',
 			data: new FormData($(this)[0]),
-		    cache: false,
-		    contentType: false,
-		    processData: false,
-		    method: 'POST',
-		    type: 'POST',
-			success:function(resp){
-				if(resp == 1){
-					alert_toast('Comment successfully saved.',"success");
-					setTimeout(function(){
+			cache: false,
+			contentType: false,
+			processData: false,
+			method: 'POST',
+			type: 'POST',
+			success: function(resp) {
+				if (resp == 1) {
+					alert_toast('Comment successfully saved.', "success");
+					setTimeout(function() {
 						location.reload()
-					},1500)
+					}, 1500)
 				}
 			}
 		})
 	})
-	$('.delete_comment').click(function(){
-	_conf("Are you sure to delete this comment?","delete_comment",[$(this).attr('data-id')])
+	$('.delete_comment').click(function() {
+		_conf("Are you sure to delete this comment?", "delete_comment", [$(this).attr('data-id')])
 	})
-	function delete_comment($id){
+
+	function delete_comment($id) {
 		start_load()
 		$.ajax({
-			url:'ajax.php?action=delete_comment',
-			method:'POST',
-			data:{id:$id},
-			success:function(resp){
-				if(resp==1){
-					alert_toast("Data successfully deleted",'success')
-					setTimeout(function(){
+			url: 'ajax.php?action=delete_comment',
+			method: 'POST',
+			data: {
+				id: $id
+			},
+			success: function(resp) {
+				if (resp == 1) {
+					alert_toast("Data successfully deleted", 'success')
+					setTimeout(function() {
 						location.reload()
-					},1500)
+					}, 1500)
 
 				}
 			}

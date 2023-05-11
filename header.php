@@ -5,7 +5,7 @@
   ob_start();
   $title = isset($_GET['page']) ? ucwords(str_replace("_", ' ', $_GET['page'])) : "Home";
   ?>
-  <title><?php echo $title ?> | Customer Support System</title>
+  <title><?php echo $title ?> | ABH Staff Support System</title>
   <?php ob_end_flush() ?>
   <link rel="shortcut icon" type="image/icon" href="assets/dist/img/logo.png" />
 

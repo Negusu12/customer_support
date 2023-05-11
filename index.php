@@ -110,7 +110,7 @@ include 'header.php'
       <strong>Copyright &copy; 2023 <a href="https://www.abhpartners.com/">ABH Partners Plc</a>.</strong>
       All rights reserved.
       <div class="float-right d-none d-sm-inline-block">
-        <b>Customer Support System</b>
+        <b>ABH Staff Support System</b>
       </div>
     </footer>
   </div>

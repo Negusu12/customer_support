@@ -16,13 +16,13 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>customer_name</th>
+                        <th>Staff Name</th>
                         <th>subject</th>
                         <th>description</th>
                         <th>date_created</th>
                         <th>department_name</th>
                         <th>status</th>
-                        <th>staff_name</th>
+                        <th>IT Staff Name</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -31,29 +31,6 @@
               <a href="#" class="nav-link nav-edit_customer">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
-                  Customer
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="./index.php?page=new_customer" class="nav-link nav-new_customer tree-item">
-                    <i class="fas fa-angle-right nav-icon"></i>
-                    <p>Add New</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./index.php?page=customer_list" class="nav-link nav-customer_list tree-item">
-                    <i class="fas fa-angle-right nav-icon"></i>
-                    <p>List</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link nav-edit_staff">
-                <i class="nav-icon fas fa-user"></i>
-                <p>
                   Staff
                   <i class="right fas fa-angle-left"></i>
                 </p>
@@ -67,6 +44,29 @@
                 </li>
                 <li class="nav-item">
                   <a href="./index.php?page=staff_list" class="nav-link nav-staff_list tree-item">
+                    <i class="fas fa-angle-right nav-icon"></i>
+                    <p>List</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link nav-edit_staff">
+                <i class="nav-icon fas fa-user"></i>
+                <p>
+                  IT Staff
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./index.php?page=new_it_staff" class="nav-link nav-new_it_staff tree-item">
+                    <i class="fas fa-angle-right nav-icon"></i>
+                    <p>Add New</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./index.php?page=it_staff_list" class="nav-link nav-it_staff_list tree-item">
                     <i class="fas fa-angle-right nav-icon"></i>
                     <p>List</p>
                   </a>
@@ -92,7 +92,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./index.php?page=ticket_report" class="nav-link nav-customer_list tree-item">
+                  <a href="./index.php?page=ticket_report" class="nav-link nav-staff_list tree-item">
                     <i class="fas fa-angle-right nav-icon"></i>
                     <p>Tickets</p>
                   </a>
@@ -100,7 +100,7 @@
               </ul>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./index.php?page=report_support" class="nav-link nav-customer_list tree-item">
+                  <a href="./index.php?page=report_support" class="nav-link nav-staff_list tree-item">
                     <i class="fas fa-angle-right nav-icon"></i>
                     <p>Support Report</p>
                   </a>
@@ -108,15 +108,15 @@
               </ul>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./index.php?page=report_customer_request" class="nav-link nav-customer_list tree-item">
+                  <a href="./index.php?page=report_staff_request" class="nav-link nav-staff_list tree-item">
                     <i class="fas fa-angle-right nav-icon"></i>
-                    <p>Customer Request Report</p>
+                    <p>Staff Request Report</p>
                   </a>
                 </li>
               </ul>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./index.php?page=report_department_request" class="nav-link nav-customer_list tree-item">
+                  <a href="./index.php?page=report_department_request" class="nav-link nav-staff_list tree-item">
                     <i class="fas fa-angle-right nav-icon"></i>
                     <p>Department Request Report</p>
                   </a>
