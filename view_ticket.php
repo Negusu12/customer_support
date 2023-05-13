@@ -1,6 +1,6 @@
 <?php include 'db_connect.php' ?>
 <?php
-$qry = $conn->query("SELECT t.*,concat(c.lastname,', ',c.firstname,' ',c.middlename) as cname, d.name as dname FROM tickets t inner join customers c on c.id= t.customer_id inner join departments d on d.id = t.department_id  where  t.id = " . $_GET['id'])->fetch_array();
+$qry = $conn->query("SELECT t.*,concat(c.firstname,', ',c.middlename,' ',c.lastname) as cname, d.name as dname FROM tickets t inner join customers c on c.id= t.customer_id inner join departments d on d.id = t.department_id  where  t.id = " . $_GET['id'])->fetch_array();
 foreach ($qry as $k => $v) {
 	$$k = $v;
 }
@@ -23,7 +23,7 @@ foreach ($qry as $k => $v) {
 							<div class="col-md-6">
 								<label for="" class="control-label border-bottom border-primary">Subject</label>
 								<p class="ml-2 d-list"><b><?php echo $subject ?></b></p>
-								<label for="" class="control-label border-bottom border-primary">Customer</label>
+								<label for="" class="control-label border-bottom border-primary">Staff</label>
 								<p class="ml-2 d-list"><b><?php echo $cname ?></b></p>
 							</div>
 							<div class="col-md-6">

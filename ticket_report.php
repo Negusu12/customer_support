@@ -6,12 +6,12 @@
                 <colgroup>
                     <col width="5%">
                     <col width="15%">
-                    <col width="20%">
                     <col width="15%">
-                    <col width="25%">
+                    <col width="20%">
+                    <col width="5%">
                     <col width="10%">
-                    <col width="10%">
-                    <col width="10%">
+                    <col width="5%">
+                    <col width="15%">
                 </colgroup>
                 <thead>
                     <tr>
@@ -33,7 +33,7 @@
                         $where .= " where t.department_id = {$_SESSION['login_department_id']} ";
                     if ($_SESSION['login_type'] == 3)
                         $where .= " where t.customer_id = {$_SESSION['login_id']} ";
-                    $qry = $conn->query("SELECT * from tickets_report order BY customer_name");
+                    $qry = $conn->query("SELECT * from tickets_report order BY date_created desc");
                     while ($row = $qry->fetch_assoc()) :
                         $trans = get_html_translation_table(HTML_ENTITIES, ENT_QUOTES);
                         unset($trans["\""], $trans["<"], $trans[">"], $trans["<h2"]);

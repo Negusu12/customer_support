@@ -27,7 +27,7 @@ include('./db_connect.php');
 		position: fixed;
 		top: 0;
 		left: 0;
-		background: linear-gradient(-135deg, #c85056, #99d041);
+		background: linear-gradient(-135deg, #414142, #B2B435, #4D7DBF, #26225B);
 		/*background: #007bff;*/
 	}
 
@@ -50,6 +50,16 @@ include('./db_connect.php');
 
 	.boxa {
 		margin-top: -8%;
+	}
+
+	.btn-login {
+		background-color: #26225B;
+		color: #ffffff;
+	}
+
+	.btn-login:hover {
+		background-color: #B2B435;
+		color: #ffffff;
 	}
 </style>
 
@@ -78,13 +88,13 @@ include('./db_connect.php');
 							<div class="form-group">
 								<label for="password" class="control-label text-dark">Type</label>
 								<select class="custom-select custom-select-sm" name="type">
-									<option value="3">Customer</option>
+									<option value="3">Staff</option>
 									<option value="2">IT Staff</option>
 									<option value="1">Admin</option>
 
 								</select>
 							</div>
-							<center><button class="btn-sm btn-block btn-wave col-md-4 btn-primary">Login</button></center>
+							<center><button class="btn-sm btn-block btn-wave col-md-4 btn-login">Login</button></center>
 						</form>
 					</div>
 				</div>
