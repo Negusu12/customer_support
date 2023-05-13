@@ -40,6 +40,7 @@ include 'header.php'
           $page = isset($_GET['page']) ? $_GET['page'] : 'home';
           include $page . '.php';
           ?>
+
         </div><!--/. container-fluid -->
       </section>
       <!-- /.content -->

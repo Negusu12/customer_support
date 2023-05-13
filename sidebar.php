@@ -83,7 +83,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav-link nav-edit_staff">
+              <a href="#" class="nav-link nav-edit_report nav-view_report">
                 <i class="nav-icon fas fa-book-open"></i>
                 <p>
                   Reports
@@ -92,7 +92,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./index.php?page=ticket_report" class="nav-link nav-staff_list tree-item">
+                  <a href="./index.php?page=ticket_report" class="nav-link nav-ticket_report tree-item">
                     <i class="fas fa-angle-right nav-icon"></i>
                     <p>Tickets</p>
                   </a>
@@ -100,7 +100,7 @@
               </ul>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./index.php?page=report_support" class="nav-link nav-staff_list tree-item">
+                  <a href="./index.php?page=report_support" class="nav-link nav-report_support tree-item">
                     <i class="fas fa-angle-right nav-icon"></i>
                     <p>Support Report</p>
                   </a>
@@ -108,7 +108,7 @@
               </ul>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./index.php?page=report_staff_request" class="nav-link nav-staff_list tree-item">
+                  <a href="./index.php?page=report_staff_request" class="nav-link nav-report_staff_request tree-item">
                     <i class="fas fa-angle-right nav-icon"></i>
                     <p>Staff Request Report</p>
                   </a>
@@ -116,7 +116,7 @@
               </ul>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./index.php?page=report_department_request" class="nav-link nav-staff_list tree-item">
+                  <a href="./index.php?page=report_department_request" class="nav-link nav-report_department_request tree-item">
                     <i class="fas fa-angle-right nav-icon"></i>
                     <p>Department Request Report</p>
                   </a>
