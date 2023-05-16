@@ -53,12 +53,12 @@ include 'header.php'
     top: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background-color: red;
     color: white;
-    font-size: 12px;
+    font-size: 30px;
     text-align: center;
     line-height: 20px;
 

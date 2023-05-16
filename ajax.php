@@ -86,4 +86,3 @@ if($action == "delete_comment"){
 }
 
 ob_end_flush();
-?>

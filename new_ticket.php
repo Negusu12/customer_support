@@ -9,9 +9,20 @@ if (!isset($conn)) {
 			<form action="" id="manage_ticket">
 				<input type="hidden" name="id" value="<?php echo isset($id) ? $id : '' ?>">
 				<div class="col-md-6">
-					<div class="form-group">
+					<!-- Replace the subject field with the other subject field -->
+					<div class="form-group" id="subject-field">
 						<label for="" class="control-label">Subject</label>
-						<input type="text" name="subject" class="form-control form-control-sm" required value="<?php echo isset($subject) ? $subject : '' ?>">
+						<select name="subject" class="custom-select custom-select-sm select2" id="subject-select">
+							<option value=""></option>
+							<option value="ERP">ERP</option>
+							<option value="Printer">Printer</option>
+							<option value="Networking">Networking</option>
+							<option value="Others">Others</option>
+						</select>
+					</div>
+					<div class="form-group" id="other-subject-field" style="display:none">
+						<label for="" class="control-label">Other Subject</label>
+						<input type="text" name="subject" class="form-control">
 					</div>
 					<?php if ($_SESSION['login_type'] != 3) : ?>
 						<div class="form-group">
@@ -79,4 +90,17 @@ if (!isset($conn)) {
 			}
 		})
 	})
+
+	// Replace the subject field with the other subject field when "Others" is selected
+	$('#subject-select').on('change', function() {
+		if ($(this).val() == 'Others') {
+			$('#subject-field').hide();
+			$('#other-subject-field').show();
+			$('#other-subject-field input').attr('name', 'subject');
+		} else {
+			$('#subject-field').show();
+			$('#other-subject-field').hide();
+			$('#other-subject-field input').attr('name', '');
+		}
+	});
 </script>
