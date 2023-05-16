@@ -55,15 +55,28 @@
         <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-door-open"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Open/Processing Tickets</span>
-          <span class="info-box-number"><?php echo $conn->query("SELECT * FROM tickets WHERE (tickets.status = 0 OR tickets.status = 1)")->num_rows; ?></span>
+          <span class="info-box-text">Open Tickets</span>
+          <span class="info-box-number"><?php echo $conn->query("SELECT * FROM tickets WHERE tickets.status = 0")->num_rows; ?></span>
         </div>
         <!-- /.info-box-content -->
       </div>
       <!-- /.info-box -->
     </div>
     <!-- /.col -->
+    <div class="col-12 col-sm-6 col-md-3">
+      <a style="color: #212529;" href="index.php?page=processing_tickets">
+        <div class="info-box mb-3">
+          <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-door-open"></i></span>
 
+          <div class="info-box-content">
+            <span class="info-box-text">Processing Tickets</span>
+            <span class="info-box-number"><?php echo $conn->query("SELECT * FROM tickets WHERE tickets.status = 1")->num_rows; ?></span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </a>
+    </div>
     <!-- fix for small devices only -->
     <div class="clearfix hidden-md-up"></div>
 
@@ -164,6 +177,21 @@
       <!-- /.info-box -->
     </div>
     <!-- /.col -->
+
+    <div class="col-12 col-sm-6 col-md-3">
+      <a style="color: #212529;" href="index.php?page=processing_tickets">
+        <div class="info-box mb-3">
+          <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-door-open"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">Processing Tickets</span>
+            <span class="info-box-number"><?php echo $conn->query("SELECT * FROM tickets WHERE tickets.status = 1")->num_rows; ?></span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </a>
+    </div>
 
     <!-- fix for small devices only -->
     <div class="clearfix hidden-md-up"></div>
