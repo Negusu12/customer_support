@@ -179,10 +179,10 @@ include 'header.php'
 
     <!-- Main Footer -->
     <footer class="main-footer">
-      <strong>Copyright &copy; 2023 <a1 href="https://www.abhpartners.com/">ABH Partners Plc</a1>.</strong>
+      <strong>Copyright &copy; 2023 <a1 href="https://www.abhpartners.com/">Negusu</a1>.</strong>
       All rights reserved.
       <div class="float-right d-none d-sm-inline-block">
-        <b>ABH Staff Support System</b>
+        <b>Negusu Staff Support System</b>
       </div>
     </footer>
   </div>
